@@ -12,7 +12,7 @@ The solution is built to showcase several important Azure services often used in
 
 ## Architecture Overview
 
-## High-Level Architecture
+### High-Level Architecture
 
 <img width="943" height="752" alt="image" src="https://github.com/user-attachments/assets/4a806c58-71fa-4f77-858c-5afcbbfa4f90" />
 
@@ -30,7 +30,7 @@ Azure VM Scale Set
 Web VM 1    Web VM 2
 ```
 
-Traffic flow:
+### Traffic flow:
 
 Internet  
 → Azure Front Door  
