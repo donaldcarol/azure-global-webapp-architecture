@@ -33,3 +33,27 @@ variable "subnet_vmss_prefix" {
   type        = string
   default     = "10.20.2.0/24"
 }
+
+variable "vmss_name" {
+  description = "VM Scale Set name"
+  type        = string
+  default     = "vmss-web"
+}
+
+variable "admin_username" {
+  description = "Admin username"
+  type        = string
+  default     = "azureadmin"
+}
+
+variable "admin_password" {
+  description = "Admin password"
+  type        = string
+  sensitive   = true
+}
+
+variable "instance_count" {
+  description = "Number of VM instances"
+  type        = number
+  default     = 2
+}
