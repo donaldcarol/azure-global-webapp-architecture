@@ -1,0 +1,4 @@
+location            = "westeurope"
+resource_group_name = "rg-global-webapp-demo"
+admin_password      = "ChangeThisNow123!"
+instance_count      = 2
