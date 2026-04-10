@@ -12,6 +12,24 @@ The solution is built to showcase several important Azure services often used in
 
 ## Architecture Overview
 
+## High-Level Architecture
+
+<img width="943" height="752" alt="image" src="https://github.com/user-attachments/assets/4a806c58-71fa-4f77-858c-5afcbbfa4f90" />
+
+
+```text
+Users on the Internet
+        |
+        v
+Azure Application Gateway
+        |
+        v
+Azure VM Scale Set
+   |           |
+   v           v
+Web VM 1    Web VM 2
+```
+
 Traffic flow:
 
 Internet  
@@ -136,7 +154,3 @@ This project was created as part of my Azure architecture and cloud engineering 
 
 
 ---
-
-# architecture/design.md
-
-![ARchitecture](architecture/design.md)
