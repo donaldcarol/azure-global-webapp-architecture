@@ -125,7 +125,7 @@ It can be used to discuss topics such as:
 - Azure VM Scale Sets
 - GitHub Actions
 - Linux / Nginx
-
+  
   ## Deployment Notes
 
 The Terraform configuration is designed to be modular enough for learning and portfolio purposes.
@@ -134,9 +134,11 @@ Before deployment, update the values in terraform.tfvars and make sure you are a
 
 Typical workflow:
 
+```text   
 terraform init  
 terraform plan  
-terraform apply  
+terraform apply
+```
 
 ## Future Improvements
 
