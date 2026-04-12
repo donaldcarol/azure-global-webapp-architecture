@@ -2,7 +2,7 @@
 ![Terraform](https://img.shields.io/badge/IaaC-Terraform-black)
 ![Azure](https://img.shields.io/badge/Azure-FrontDoor-0078D4?logo=microsoftazure)
 ![Azure](https://img.shields.io/badge/Azure-AplicationGateway-green)
-![Azure](https://img.shields.io/badge/Azure-VMSS-red)
+![Azure](https://img.shields.io/badge/Azure-VMScaleSet-red)
 
 
 
