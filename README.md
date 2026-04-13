@@ -110,6 +110,18 @@ Planned next steps:
 - GitHub Actions deployment using OIDC
 - monitoring and health validation
 
+## Demo
+
+### Application Gateway Backend Health
+![Backend Health](architecture/screenshots/appgw-backend-health.jpg)
+
+### VM Scale Set Instances
+![VMSS](architecture/screenshots/vmss-instances.jpg)
+
+### Web Application Response
+![Web](architecture/screenshots/web00.jpg)
+![Web](architecture/screenshots/web01.jpg)
+
 
 ## Why This Project Matters
 
