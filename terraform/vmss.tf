@@ -30,6 +30,13 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
       name      = "internal"
       primary   = true
       subnet_id = azurerm_subnet.vmss.id
+
+     application_gateway_backend_address_pool_ids = [
+  one([
+    for pool in azurerm_application_gateway.appgw.backend_address_pool : pool.id
+    if pool.name == "backend-pool"
+  ])
+]
     }
   }
 
