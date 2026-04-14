@@ -122,6 +122,10 @@ Planned next steps:
 ![Web](architecture/screenshots/web00.jpg)
 ![Web](architecture/screenshots/web01.jpg)
 
+### Azure Front Door
+![Web](architecture/screenshots/FD.jpg)
+![Web](architecture/screenshots/FDconfig.jpg)
+
 
 ## Why This Project Matters
 
