@@ -6,17 +6,26 @@
 
 
 
-# Azure Global Web App Architecture
+🌍 Azure Global Web App Architecture Demo
 
-This project demonstrates a practical Azure web application architecture designed around high availability, scalability, and secure traffic distribution.
+This project demonstrates a multi-tier Azure architecture using global and regional load balancing components.
 
-The solution is built to showcase several important Azure services often used in real-world cloud environments:
+🧱 Architecture
+Internet → Azure Front Door → Application Gateway → VM Scale Set → Nginx
+🔹 Components
+### Azure Front Door (Standard)  
+- Global Layer 7 load balancer   
+- Public entry point (*.azurefd.net)  
+- Routes traffic to backend origin  
+### Azure Application Gateway (Standard_v2)  
+- Regional Layer 7 load balancer  
+- Handles HTTP routing and health probes  
+- Backend pool connected to VM Scale Set  
+### Azure VM Scale Set (Linux)  
+- 2 instances
+- Nginx installed via custom script
+- Displays hostname to demonstrate load distribution
 
-- Azure Front Door as the global entry point
-- Azure Application Gateway for regional Layer 7 routing
-- Azure Virtual Machine Scale Sets for scalable web compute
-- Azure networking components such as VNets, subnets, and NSGs
-- Infrastructure as Code using Terraform
 
 ## Architecture Overview
 
@@ -38,29 +47,46 @@ Azure VM Scale Set
 Web VM 1    Web VM 2
 ```
 
-### Traffic flow:
+🔹 How It Works
 
-Internet  
-→ Azure Front Door  
-→ Azure Application Gateway  
-→ Azure VM Scale Set (web servers)
+1. User accesses the Front Door endpoint:
+http://<your-endpoint>.azurefd.net  
+2. Azure Front Door routes the request to:    
+Application Gateway public IP (configured as origin)    
+3. Application Gateway forwards traffic to:    
+VM Scale Set instances (backend pool)    
+4. Nginx responds with:    
+Instance hostname (e.g. vmss-web000001)
 
-This design reflects a common enterprise-style pattern where:
 
-- Front Door provides global HTTP/HTTPS entry and traffic optimization
-- Application Gateway handles regional web routing and can later be extended with WAF
-- VM Scale Sets provide horizontal scaling for stateless web servers
+🔹 Important Notes
+- ⚠️ HTTP only (current version)  
+-- The architecture is configured for HTTP traffic only  
+-- HTTPS is not enabled in this version
+-- Browsers may automatically attempt HTTPS, causing failures
+- ⚠️ Front Door Origin Configuration
+-- Backend origin is configured using Application Gateway public IP
+-- Works for lab/demo scenarios
+-- In production, FQDN should be used instead
+- ⚠️ Cost Optimization
+-- Resources are deployed via Terraform  
+  -- Recommended workflow:   
+terraform apply → test → terraform destroy
 
-## Project Goals
+🔹 Validation
 
-The purpose of this project is to demonstrate:
+The solution was validated by:
 
-- practical Azure architecture thinking
-- separation of global and regional traffic management
-- high availability design principles
-- scalable compute using VM Scale Sets
-- reusable Infrastructure as Code patterns
-- a portfolio-ready Azure deployment example
+- Accessing Front Door endpoint over HTTP
+- Verifying response from multiple VMSS instances
+- Confirming end-to-end routing:  
+Front Door → App Gateway → VMSS
+
+🚀 Future Improvements
+- Enable HTTPS on Front Door
+- Add WAF (Web Application Firewall)
+- Implement multi-region failover
+- Replace IP-based origin with DNS-based configuration
 
 ## Repository Structure
 
