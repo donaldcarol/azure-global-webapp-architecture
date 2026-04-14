@@ -6,7 +6,7 @@
 
 
 
-🌍 Azure Global Web App Architecture Demo
+# 🌍 Azure Global Web App Architecture Demo  
 
 This project demonstrates a multi-tier Azure architecture using global and regional load balancing components.
 
