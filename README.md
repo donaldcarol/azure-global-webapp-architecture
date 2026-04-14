@@ -34,19 +34,6 @@ Internet → Azure Front Door → Application Gateway → VM Scale Set → Nginx
 <img width="943" height="752" alt="image" src="https://github.com/user-attachments/assets/4a806c58-71fa-4f77-858c-5afcbbfa4f90" />
 
 
-```text
-Users on the Internet
-        |
-        v
-Azure Application Gateway
-        |
-        v
-Azure VM Scale Set
-   |           |
-   v           v
-Web VM 1    Web VM 2
-```
-
 🔹 How It Works
 
 1. User accesses the Front Door endpoint:
@@ -114,27 +101,6 @@ azure-global-webapp-architecture/
     └── workflows/
         └── deploy.yml
 ```
-
-## Current Scope
-
- Initial version:
-
-- Resource Group
-- Virtual Network
-- Dedicated subnets
-- Network Security Group
-- Linux VM Scale Set
-- Application Gateway
-- basic web server bootstrap script
-
-Planned next steps:
-
-- Azure Front Door
-- WAF policy
-- HTTPS with certificates
-- multi-region failover
-- GitHub Actions deployment using OIDC
-- monitoring and health validation
 
 ## Demo
 
