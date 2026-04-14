@@ -12,7 +12,8 @@ This project demonstrates a multi-tier Azure architecture using global and regio
 
 🧱 Architecture
 Internet → Azure Front Door → Application Gateway → VM Scale Set → Nginx
-🔹 Components
+
+## 🔹 Components
 ### Azure Front Door (Standard)  
 - Global Layer 7 load balancer   
 - Public entry point (*.azurefd.net)  
