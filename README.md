@@ -1,9 +1,7 @@
-![Azure](https://img.shields.io/badge/Azure-Architecture-black)
-![Terraform](https://img.shields.io/badge/IaaC-Terraform-black)
-![Azure](https://img.shields.io/badge/Azure-FrontDoor-0078D4?logo=microsoftazure)
-![Azure](https://img.shields.io/badge/Azure-AplicationGateway-green)
-![Azure](https://img.shields.io/badge/Azure-VMScaleSet-red)
-
+![Terraform](https://img.shields.io/badge/IaC-Terraform-623CE4?logo=terraform)
+![Azure](https://img.shields.io/badge/Cloud-Azure-0078D4?logo=microsoftazure)
+![Status](https://img.shields.io/badge/Status-Demo-success)
+![License](https://img.shields.io/badge/License-MIT-blue)
 
 # 🌍 Azure Global Web App Architecture
 
@@ -18,6 +16,17 @@ Internet → Azure Front Door → Application Gateway → VM Scale Set → Nginx
 ---
 
 ## 🔧 Architecture Components
+
+
+## 🏗️ Architecture Diagram
+
+```mermaid
+flowchart LR
+    A[User] --> B[Azure Front Door]
+    B --> C[Application Gateway]
+    C --> D[VM Scale Set]
+    D --> E[Nginx Web App]
+```
 
 ### 🔴 Azure Front Door (Global Layer 7)
 
@@ -74,14 +83,15 @@ Internet → Azure Front Door → Application Gateway → VM Scale Set → Nginx
 
 ![Front Door](architecture/screenshots/FD.jpg)
 
+---
 ### 🔵 Application Gateway Backend Health
 
 ![Backend Health](architecture/screenshots/appgw-backend-health.jpg)
 
+---
 ### 🟢 VM Scale Set Instances
 
 ![VMSS](architecture/screenshots/vmss-instances.jpg)
-
 
 ---
 
@@ -151,6 +161,17 @@ Front Door → App Gateway → VMSS
 * **Front Door = global load balancing**
 * **Application Gateway = regional routing**
 * **VMSS = scalable compute layer**
+
+---
+
+## 🧠 Lessons Learned
+
+- Front Door requires correct protocol configuration (HTTP vs HTTPS)
+- Browsers may default to HTTPS, causing misleading failures
+- Application Gateway works reliably as a backend for Front Door
+- Using IP as origin works for labs, but FQDN is preferred in production
+- Health probes are critical for backend availability
+- Terraform helps maintain consistent and repeatable deployments
 
 ---
 
